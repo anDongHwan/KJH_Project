@@ -1,0 +1,56 @@
+----- std 라이브러리 인식 문제
+
+proj.android-studio->jni->Application.mk
+
+APP_STL := gnul_stl -> c++_static
+NDK_TOOLCHAIN_VERSION := clang 로 변경 
+
+----- 한글 깨짐 현상
+
+textManager.cpp -> 고급 저장 옵션 
+ 인코딩 - 유니코드(서명있는 UTF-8)
+ 줄 끝 - Unix(LF) 
+
+로 지정.
+
+porj.android-studio build.gradle
+
+빌드 스크립트 안.
+
+tasks.withType(JavaCompile) {
+        options.debug = true
+        options.debugOptions.debugLevel = "source,lines,vars"
+        options.encoding = "UTF-8"
+    }
+
+------ Classes 에 있는 파일 추가
+
+Android.mk 로컬 파일 소스 수정
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/*.cpp)
+
+LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+LOCAL_SRC_FILES += hellocpp/main.cpp
+
+(1014_) 한글 깨짐 현상을 해결하고 나니 이 부분에서 에러
+추후 수정하도록 하겠음.
+
+
+------ cocos 업그레이드 후 touch 문제
+
+레이어의 개념을 아예 종속관계가 아닌 것으로 나눴을 가능성이 있음..
+예상이 맞았음.. 스크롤 레이어의 값을 Z 오더를 -1로 지정함(1014)
+
+------ 
+API 19(Android 4.4.2 ) 버전 잘 돌아감. 
+[INSTALL_FAILED_NO_MATCHING_ABIS] 오류가 뜨는 것으로 봐선
+Native 뭐가 없다는 것은 알겠음. 곧 수정하도록 함.
+
+
+----- 현재의 버전 
+cocos 3.13.1
+ANR 1.9.7
+NDT r12b
+SDK 많이 갖고 있음. 24, 23,21,18,13,11,10,9,8
+
