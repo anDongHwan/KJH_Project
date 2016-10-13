@@ -1,5 +1,3 @@
-#pragma once
-
 #include "spriteManager.h"
 #include "textManager.h"
 #include "characterManager.h"

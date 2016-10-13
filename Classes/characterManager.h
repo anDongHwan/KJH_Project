@@ -1,5 +1,3 @@
-#pragma once
-
 #include "header.h"
 
 // 처음부터 30의 값으로 설정하는것이 의미가 있는가? 1001

@@ -1,4 +1,4 @@
-#include "textManager.h"
+ï»¿#include "textManager.h"
 
 bool textManager::init(Layer* mainLayer)
 {
@@ -8,7 +8,7 @@ bool textManager::init(Layer* mainLayer)
 	statePos.y += 25;
 
 	// state text
-	createText(statePos, 22, Size(500, 100), Color3B::WHITE, "¾È³çÇÏ¼¼¿ä ¹Ý°©½À´Ï´Ù.\n±¸ÇöÁßÀÔ´Ï´Ù.", mainLayer, TEXT_STATE::T_SLIDE_BAR);
+	createText(statePos, 22, Size(500, 100), Color3B::WHITE, "ì•ˆë…•í•˜ì„¸ìš” ë°˜ê°‘ìŠµë‹ˆë‹¤.\nêµ¬í˜„ì¤‘ìž…ë‹ˆë‹¤.", mainLayer, TEXT_STATE::T_SLIDE_BAR);
 	// hp, mp text
 	createText(mainLayer->getChildByTag(SPRITE_STATE::S_HPBAR)->getPosition(), 18, Size(225, 35), Color3B::BLACK, "HelloWorld", mainLayer, TEXT_STATE::T_HPBAR);
 	createText(mainLayer->getChildByTag(SPRITE_STATE::S_MPBAR)->getPosition(), 18, Size(225, 35), Color3B::BLACK, "HelloWorld", mainLayer, TEXT_STATE::T_MPBAR);

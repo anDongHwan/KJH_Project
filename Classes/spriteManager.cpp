@@ -72,7 +72,7 @@ Layer* spriteManager::createScrollView(Vec2 offset, float offsetDelay, Layer* ma
 	scroll->setContentOffsetInDuration(offset, offsetDelay);
 	// back Sprite tag 
 	scroll->setTag(SPRITE_STATE::S_BACKGROUND);
-	mainLayer->addChild(scroll);
+	mainLayer->addChild(scroll, -1);
 
 	return layer;
 }

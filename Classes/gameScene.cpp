@@ -14,6 +14,7 @@ bool gameScene::init()
 	if (!Layer::init())
 		return false;
 	start();
+	// test code
 	this->schedule(schedule_selector(gameScene::tick));
 	CCLOG("Game being...");
 	end();
@@ -34,6 +35,7 @@ void gameScene::start()
 bool gameScene::onTouchBegan(Touch* touch, Event* event)
 {
 	Vec2 position = touch->getLocation();
+	CCLOG("%1.f", position.x);
 	position.y -= sprites.scrollLayer->getPosition().y;
 	game.touchCheck(sprites.scrollLayer, position, texts.vectorText);
 	return false;
